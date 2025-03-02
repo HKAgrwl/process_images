@@ -43,7 +43,9 @@ def process_images(request_id: str):
     req.status = "completed" if all(img.status == "processed" for img in images) else "failed"
     db.commit()
     print(f"Final request status: {req.status}")
-    print("Triggering webhook...")
+    if req.webhook_url:
+        print("Triggering webhook...")
+        trigger_webhook(req)
     trigger_webhook(req)
     db.close()
     print("Processing completed.")

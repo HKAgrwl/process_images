@@ -2,8 +2,10 @@ import requests
 from server.database import SessionLocal
 from server.models import ImageData, Request
 
+# Our webhook function
 def trigger_webhook(req):
     if req.webhook_url:
+        print(f"Triggering webhook for request_id: {req.request_id}")
         db = SessionLocal()
         payload = {
             'request_id': req.request_id,
@@ -18,6 +20,7 @@ def trigger_webhook(req):
         }
         try:
             requests.post(req.webhook_url, json=payload)
-        except:
-            pass
+            print(f"Webhook triggered successfully, response status: {response.status_code}")
+        except Exception as e:
+            print(f"Failed to trigger webhook: {e}")
         db.close()

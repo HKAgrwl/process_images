@@ -1,4 +1,4 @@
-from fastapi import APIRouter, UploadFile, File, HTTPException, Depends
+from fastapi import APIRouter, UploadFile, File, HTTPException, Depends,Form
 from sqlalchemy.orm import Session
 from server.database import get_db
 from server.models import Request, ImageData
@@ -10,7 +10,7 @@ import os
 router = APIRouter()
 
 @router.post("/upload")
-async def upload_csv(file: UploadFile = File(...), webhook_url: str = None, db: Session = Depends(get_db)):
+async def upload_csv(file: UploadFile = File(...), webhook_url: str = Form(None), db: Session = Depends(get_db)):
     if not file.filename.endswith(".csv"):
         raise HTTPException(status_code=400, detail="Invalid file format")
 

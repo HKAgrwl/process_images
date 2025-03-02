@@ -4,10 +4,10 @@ from server.database import initialize_database
 
 app = FastAPI()
 
-# Initialize database
+# Initializing database
 initialize_database()
 
-# Include API routes
+# Including API routes
 app.include_router(router)
 
 if __name__ == "__main__":
