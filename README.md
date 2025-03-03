@@ -43,7 +43,7 @@ docker-compose up -d  # Start RabbitMQ using Docker Compose
 
 ### Upload CSV (`POST /upload`)
 
-Uploads a CSV file containing image URLs for processing.
+Uploads a CSV file containing image URLs for processing. You can also use the given "test.csv" file.
 
 ```bash
 curl -X POST "http://localhost:8000/upload" \
