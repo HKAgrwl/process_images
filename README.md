@@ -15,7 +15,7 @@ pip install -r requirements.txt
 
 ### Clone the repo and go to the cloned repository
 ```bash
-git clone https://github.com/HKAgrwl/process_images
+git clone https://github.com/HKAgrwl/process_images.git
 cd process_images
 ```
 
