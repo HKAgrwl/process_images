@@ -13,9 +13,15 @@ pip install -r requirements.txt
 
 ## Usage
 
+### Clone the repo and go to the cloned repository
+```bash
+git clone https://github.com/HKAgrwl/process_images
+cd process_images
+```
+
 ### Initialize the database (only first time)
 ```bash
-python -c "from server.database import initialize_database; initialize_database()"
+python db_init.py
 ```
 
 ### Start FastAPI Server
