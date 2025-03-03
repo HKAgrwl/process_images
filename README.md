@@ -1,7 +1,7 @@
 # FastAPI Image Processing System
 
 ## Overview
-This is a FastAPI-based system that processes images asynchronously. Users upload a CSV file containing image URLs, and the system downloads, compresses, and stores them while updating their status in a PostgreSQL database. Celery is used for background task processing, and webhooks can be triggered upon completion, though they are optional.
+This is a FastAPI-based system that processes images asynchronously. Users upload a CSV file containing image URLs, and the system downloads, compresses, and stores them while updating their status in a SQLite database. Celery is used for background task processing, and webhooks can be triggered upon completion, though they are optional.
 
 ## Installation
 
@@ -12,6 +12,11 @@ pip install -r requirements.txt
 ```
 
 ## Usage
+
+### Initialize the database (only first time)
+```bash
+python -c "from server.database import initialize_database; initialize_database()"
+```
 
 ### Start FastAPI Server
 ```bash
